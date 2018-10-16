@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nitro_policy esm="479B:96BB" time="06/16/2015 23:34:41" user="NGCP" build="9.5.0 20150217101337" model="ENMELM-VM8" version="9005000">
+  <rules count="1">
+    <rule>
+      <id>5000003</id>
+      <normid>1343225856</normid>
+      <revision>0</revision>
+      <sid>0</sid>
+      <class>2</class>
+      <message>Incapsula CEF Event</message>
+      <description>Custom CEF Parser for Incapsula Event Mapping 
+Version 2.0 - June 2015</description>
+      <origin>1</origin>
+      <severity>25</severity>
+      <type>1</type>
+      <action>5</action>
+      <action_initial>5</action_initial>
+      <action_disallowed>0</action_disallowed>
+      <other_bits_default>4</other_bits_default>
+      <other_bits_disallowed>0</other_bits_disallowed>
+      <text><![CDATA[any any any -> any any (msg:"Incapsula CEF Event";adsid:143;content:"CEF:0|Incapsula";cef;pcre:"CEF\x3a0\x7c[^\x7c]+\x7c[^\x7c]+\x7c[^\x7c]+\x7c([^\x7c]+)\x7c(.*?)\x7c([^\x7c]+)\x7c\s*\w+\x3d";raw;var@{action,Query_Response}:${act};var@{AppID}:${clapp};var@{dst_ip}:${sip};var@{Destination_Hostname}:${sourceServiceName};var@{Detection_Method}:${dproc};var@{DomainID}:${siteid};var@{firsttime,lasttime}:${start};var@{Incap_UID}:${suid};var@{norm_sigid,thirdpartytype}:${filetype};var@{ObjectID}:${clappsig};var@{protocol}:${app};var@{severity}:${1:3};var@{sigdesc,sigid}:${1:2};var@{src_guid}:${VID};var@{src_ip}:${src};var@{src_port}:${sport};var@{URL}:${request};var@{User_Agent}:${requestClientApplication};fmt@{firsttime, lasttime}:"%b %d %Y %H:%M:%S";map@severity:"High0"="88","low0"="33","Low0"="33","medium0"="66","Medium0"="66","high0"="99","Very-High0"="99","00"="5";)
+]]></text>
+      <tag origin="0">1835008</tag>
+      <tag origin="0">1835190</tag>
+    </rule>
+  </rules>
+</nitro_policy>
